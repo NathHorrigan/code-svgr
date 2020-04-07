@@ -1,67 +1,72 @@
 {
-    "name": "code-svgr",
-    "displayName": "SVGR - SVG to React",
-    "description": "Extension for converting SVG's to an optimized JSX file, works for both ReactJS & React Native",
-    "version": "0.0.1",
-    "publisher": "nathhorrigan",
-    "engines": {
-        "vscode": "^1.43.0"
+  "name": "code-svgr",
+  "displayName": "SVGR - SVG to React",
+  "description": "Extension for converting SVG's to an optimized JSX file, works for both ReactJS & React Native",
+  "version": "0.1.0",
+  "publisher": "NathHorrigan",
+  "repository": "https://github.com/NathHorrigan/code-svgr",
+  "icon": "./images/icon.png",
+  "engines": {
+    "vscode": "^1.43.0"
+  },
+  "categories": [
+    "Other"
+  ],
+  "activationEvents": [
+    "onLanguage:javascript",
+    "onLanguage:typescript",
+    "onCommand:svgr.convert_selection",
+    "onCommand:svgr.convert_file"
+  ],
+  "main": "./out/extension.js",
+  "contributes": {
+    "menus": {
+      "explorer/context": [
+        {
+          "command": "svgr.convert_file",
+          "group": "7_modification@1000",
+          "when": "resourceLangId  == xml"
+        }
+      ]
     },
-    "categories": [
-        "Other"
-    ],
-    "activationEvents": [
-        "onLanguage:javascript",
-        "onLanguage:typescript",
-        "onCommand:svgr.convert_selection",
-        "onCommand:svgr.convert_file"
-    ],
-    "main": "./out/extension.js",
-    "contributes": {
-        "menus": {
-            "explorer/context": [{
-                "command": "svgr.convert_file",
-                "group": "7_modification@1000",
-                "when": "resourceLangId  == xml"
-            }]
-        },
-        "commands": [{
-                "command": "svgr.convert_selection",
-                "title": "SVGR: Convert selection to component (saved to Clipboard)"
-            },
-            {
-                "command": "svgr.convert_file",
-                "title": "SVGR: Convert SVG file to React component"
-            }
-        ]
-    },
-    "scripts": {
-        "vscode:prepublish": "npm run compile",
-        "compile": "tsc -p ./",
-        "lint": "eslint src --ext ts",
-        "watch": "tsc -watch -p ./",
-        "pretest": "npm run compile && npm run lint",
-        "test": "node ./out/test/runTest.js"
-    },
-    "devDependencies": {
-        "@types/glob": "^7.1.1",
-        "@types/mocha": "^7.0.1",
-        "@types/node": "^12.11.7",
-        "@types/vscode": "^1.43.0",
-        "eslint": "^6.8.0",
-        "@typescript-eslint/parser": "^2.18.0",
-        "@typescript-eslint/eslint-plugin": "^2.18.0",
-        "glob": "^7.1.6",
-        "mocha": "^7.0.1",
-        "typescript": "^3.7.5",
-        "vscode-test": "^1.3.0"
-    },
-    "dependencies": {
-        "@svgr/core": "^5.3.0",
-        "@svgr/plugin-jsx": "^5.3.0",
-        "@svgr/plugin-prettier": "^5.3.0",
-        "@svgr/plugin-svgo": "^5.3.0",
-        "is-svg": "^4.2.1",
-        "locate-character": "^2.0.5"
-    }
+    "commands": [
+      {
+        "command": "svgr.convert_selection",
+        "title": "SVGR: Convert selection to component (saved to Clipboard)"
+      },
+      {
+        "command": "svgr.convert_file",
+        "title": "SVGR: Convert SVG file to React component"
+      }
+    ]
+  },
+  "scripts": {
+    "vscode:prepublish": "npm run compile",
+    "compile": "tsc -p ./",
+    "lint": "eslint src --ext ts",
+    "watch": "tsc -watch -p ./",
+    "pretest": "npm run compile && npm run lint",
+    "test": "node ./out/test/runTest.js"
+  },
+  "devDependencies": {
+    "@types/glob": "^7.1.1",
+    "@types/mocha": "^7.0.1",
+    "@types/node": "^12.11.7",
+    "@types/vscode": "^1.43.0",
+    "eslint": "^6.8.0",
+    "@typescript-eslint/parser": "^2.18.0",
+    "@typescript-eslint/eslint-plugin": "^2.18.0",
+    "glob": "^7.1.6",
+    "mocha": "^7.0.1",
+    "typescript": "^3.7.5",
+    "vscode-test": "^1.3.0"
+  },
+  "dependencies": {
+    "@svgr/core": "^5.3.0",
+    "@svgr/plugin-jsx": "^5.3.0",
+    "@svgr/plugin-prettier": "^5.3.0",
+    "@svgr/plugin-svgo": "^5.3.0",
+    "is-svg": "^4.2.1",
+    "locate-character": "^2.0.5"
+  }
 }
