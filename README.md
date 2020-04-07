@@ -1,0 +1,1 @@
+# SVGR: VS-Code Edition
